@@ -1,22 +1,19 @@
 <?php 
-
 use PHPUnit\Framework\TestCase;
 
-public class  RoverTests extends TestCase{
+class TestRover extends TestCase{
 
-	public function DefaultPosition(){
-		$rover= new Rover();
-		$this->asserEquals(
-			$rover->getCoordonate(),[
+	public function testDefaultPosition(){
+		$rover = new Rover();
+		$this->assertEquals(
+			$rover->getCoordinate(),
+			[
 			"x"=>0,
 			"y"=>0,
-			"direction"=>"north"
-			]
-			)
+			"direction"=>"north"]);
 
 	}
 
 }
-
 
 ?>
