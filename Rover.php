@@ -16,10 +16,9 @@ class Rover{
 			if ($ArrayCommand[$i] === "f" || $ArrayCommand[$i] === "b") {
 				$this->MoveRover($ArrayCommand[$i]);// $this->MoveRover("f");
 			}
-			
-			// if ($ArrayCommand === "b") {
-			// 	$this->MoveRover($ArrayCommand[$i]);
-			// }
+			if ($ArrayCommand[$i] === "r" || $ArrayCommand[$i] === "l") {
+				$this->TurnRover($ArrayCommand[$i]);
+			}
 		}
 
 	}
@@ -32,9 +31,9 @@ class Rover{
 			$this->moveRoverBackwardIfNorth();
 		}
 
-		// if ($direction === "south") {
-		// 	$this->moveRoverForwardIfSouth();
-		// }
+		if ($direction === "south") {
+			$this->moveRoverForwardIfSouth();
+		}
 		// if ($direction === "east") {
 		// 	$this->moveRoverForwardIfEst();
 		// }
@@ -43,12 +42,29 @@ class Rover{
 		// }
 
 	}
+	public function TurnRover($command){
+		$direction = $this->coordinate["direction"];
+
+		if ($direction === "north" && $command === "r") {
+			$this->coordinate["direction"]="east"; 
+		}
+		if ($direction === "east" && $command === "r") {
+			$this->coordinate["direction"]="south"; 
+			# code...
+		}
+
+
+	}
 
 	public function moveRoverForwardIfNorth(){
 		$this->coordinate["y"]++;
 		
 	}
 	public function moveRoverBackwardIfNorth(){
+		$this->coordinate["y"]--;
+	}
+	public function moveRoverForwardIfSouth(){
+		
 		$this->coordinate["y"]--;
 	}
 
