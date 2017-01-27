@@ -13,6 +13,16 @@ class TestRover extends TestCase{
 			"direction"=>"north"]);
 
 	}
+	public function testExecuteCommand(){
+		$rover2= new Rover();
+		$rover2->ExecuteCommand(["f","f"]);
+		$this->assertEquals(
+			$rover2->getCoordinate(),
+			[
+			"x"=>0,
+			"y"=>2,
+			"direction"=>"north"]);
+	}
 
 }
 
