@@ -37,12 +37,12 @@ class Rover{
 		if ($direction === "south" && $command === "b") {
 			$this->moveRoverBackwardIfSouth();
 		}
-		// if ($direction === "east") {
-		// 	$this->moveRoverForwardIfEst();
-		// }
-		// if ($direction === "ouest") {
-		// 	$this->moveRoverForwardIfOuest();
-		// }
+		if ($direction === "east") {
+			$this->moveRoverForwardIfEst();
+		}
+		if ($direction === "ouest") {
+			$this->moveRoverForwardIfOuest();
+		}
 
 	}
 	public function TurnRover($command){
@@ -55,9 +55,36 @@ class Rover{
 			$this->coordinate["direction"]="south"; 
 			# code...
 		}
+		if($direction === "south" && $command === "r"){
+			$this->coordinate["direction"]="ouest";
+		}
+		if($direction === "ouest" && $command === "r"){
+			$this->coordinate["direction"]="north";
+		}
+
+		if ($direction === "north" && $command === "l") {
+			$this->coordinate["direction"]="ouest"; 
+		}
+		if ($direction === "east" && $command === "l") {
+			$this->coordinate["direction"]="north"; 
+			# code...
+		}
+		if($direction === "south" && $command === "l"){
+			$this->coordinate["direction"]="east";
+		}
+		if($direction === "ouest" && $command === "l"){
+			$this->coordinate["direction"]="south";
+		}
+
 
 	}
 
+	public function moveRoverForwardIfEst(){
+		$this->coordinate["x"]++; 
+	}
+	public function moveRoverForwardIfOuest(){
+		$this->coordinate["x"]--;
+	}
 	public function moveRoverForwardIfNorth(){
 		$this->coordinate["y"]++;
 		
