@@ -13,11 +13,10 @@ class Rover{
 	public function ExecuteCommand($ArrayCommand){
 		$ArrayCommandlength = count($ArrayCommand);
 		for ($i=0; $i < $ArrayCommandlength ; $i++) { 
-			if ($ArrayCommand === "f") {
+			if ($ArrayCommand[$i] === "f" || $ArrayCommand[$i] === "b") {
 				$this->MoveRover($ArrayCommand[$i]);// $this->MoveRover("f");
-			}else{
-				$this->coordinate["y"]++;
 			}
+			
 			// if ($ArrayCommand === "b") {
 			// 	$this->MoveRover($ArrayCommand[$i]);
 			// }
@@ -26,9 +25,13 @@ class Rover{
 	}
 	public function MoveRover($command){
 		$direction = $this->coordinate["direction"];
-		if ($direction === "north") {
+		if ($direction === "north" && $command ==="f") {
 			$this->moveRoverForwardIfNorth();
 		}
+		if ($direction === "north" && $command ==="b") {
+			$this->moveRoverBackwardIfNorth();
+		}
+
 		// if ($direction === "south") {
 		// 	$this->moveRoverForwardIfSouth();
 		// }
@@ -44,6 +47,9 @@ class Rover{
 	public function moveRoverForwardIfNorth(){
 		$this->coordinate["y"]++;
 		
+	}
+	public function moveRoverBackwardIfNorth(){
+		$this->coordinate["y"]--;
 	}
 
 
