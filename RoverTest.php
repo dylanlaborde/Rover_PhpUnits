@@ -3,18 +3,7 @@ use PHPUnit\Framework\TestCase;
 
 class TestRover extends TestCase{
 
-	public function testTurnRover(){
-
-		$rover5 =new Rover();
-		$rover5->TurnRover("r");
-		$this->assertEquals(
-			$rover5->getCoordinate(),
-			[
-			"x"=>0,
-			"y"=>0,
-			"direction"=>"east"]);
-			
-	}
+	
 
 	public function testDefaultPosition(){
 		$rover = new Rover();
@@ -79,7 +68,31 @@ class TestRover extends TestCase{
 
 
 	}
+	public function testmoveRoverBackwardIfSouth(){
+		$rover6= new Rover();
+		$rover6->ExecuteCommand(["r","r","b"]);
+		$this->assertEquals(
+			$rover6->getCoordinate(),
+			["x"=>0,
+			"y"=>-1,
+			"direction"=>"south"]
+			);
+	}
+	
 
+
+	public function testTurnRover(){
+
+		$rover5 =new Rover();
+		$rover5->TurnRover("r");
+		$this->assertEquals(
+			$rover5->getCoordinate(),
+			[
+			"x"=>0,
+			"y"=>0,
+			"direction"=>"east"]);
+			
+	}
 
 }
 
