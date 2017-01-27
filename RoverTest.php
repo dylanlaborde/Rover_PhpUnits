@@ -23,6 +23,37 @@ class TestRover extends TestCase{
 			"y"=>2,
 			"direction"=>"north"]);
 	}
+	public function testmoveRoverForwardIfNorth(){
+		$rover3= new Rover();
+		
+		$rover3->MoveRover("f");
+		$this->assertEquals(
+
+			$rover3->getCoordinate(),
+			[
+			"x"=>0,
+			"y"=>1,
+			"direction"=>"north"]);
+
+
+
+	}
+	public function testmoveRoverBackwardIfNorth(){
+		$rover3= new Rover();
+		
+		$rover3->MoveRover("b");
+		$this->assertEquals(
+
+			$rover3->getCoordinate(),
+			[
+			"x"=>0,
+			"y"=>-1,
+			"direction"=>"north"]);
+
+
+
+	}
+	
 
 }
 
